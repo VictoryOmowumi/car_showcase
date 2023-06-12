@@ -15,9 +15,10 @@ export interface OptionProps {
   }
 
   
-export interface CustomFiiltersProps {
+  export interface CustomFiiltersProps<T> {
     options: OptionProps[];
-   setFilter: (selected: T) => void;
+    setFilter: ( selected: T) => void;
+
 }
 
 export interface SearchManuFacturerProps {

@@ -2,32 +2,36 @@
 
 import { Fragment, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
 
 import { CustomFiiltersProps } from "@/types";
-import { updateSearchParams } from "@/utils";
 
-const CustomFilters = ({  options, setFilter }: CustomFiiltersProps) => {
-
-  const [selected, setSelected] = useState(options[0]); // State for storing the selected option
-
-  
+export default function CustomFilters<T>({
+  options,
+  setFilter,
+}: CustomFiiltersProps<T>) {
+  const [menu, setMenu] = useState(options[0]); // State for storing the selected option
 
   return (
     <div className='w-fit'>
       <Listbox
-        value={selected}
+        value={menu}
         onChange={(e) => {
-          setSelected(e); // Update the selected option in state
-          setFilter(e.value)
+          setMenu(e);
+          setFilter(e.value as unknown as T); // Update the selected option in state
         }}
       >
         <div className='relative w-fit z-10'>
           {/* Button for the listbox */}
           <Listbox.Button className='custom-filter__btn'>
-            <span className='block truncate'>{selected.title}</span>
-            <Image src='/chevron-up-down.svg' width={20} height={20} className='ml-4 object-contain' alt='chevron_up-down' />
+            <span className='block truncate'>{menu.title}</span>
+            <Image
+              src='/chevron-up-down.svg'
+              width={20}
+              height={20}
+              className='ml-4 object-contain'
+              alt='chevron_up-down'
+            />
           </Listbox.Button>
           {/* Transition for displaying the options */}
           <Transition
@@ -50,7 +54,12 @@ const CustomFilters = ({  options, setFilter }: CustomFiiltersProps) => {
                 >
                   {({ selected }) => (
                     <>
-                      <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`} >
+                      {/* Display the option title */}
+                      <span
+                        className={`block truncate ${
+                          selected ? "font-medium" : "font-normal"
+                        }`}
+                      >
                         {option.title}
                       </span>
                     </>
@@ -62,7 +71,5 @@ const CustomFilters = ({  options, setFilter }: CustomFiiltersProps) => {
         </div>
       </Listbox>
     </div>
-  )
+  );
 }
-
-export default CustomFilters
