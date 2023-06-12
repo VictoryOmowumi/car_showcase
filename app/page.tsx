@@ -43,33 +43,32 @@ useEffect(() => {
     <main className="overflow-hidden">
      <Hero />
      <div className="mt-12 padding-x padding-y max-width" id='discover'>
-        <div className="home__text-container">
-          <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
-          <p className="text-gray-500 mt-4">
-            Explore our wide range of cars from different brands and models.
-            </p>
-        </div>
-        <div className="home__filters">
-          <SearchBar 
-            setManufacturer={setManufacturer}
-            setModel={setModel}
-
-          />
-          <div className="home__filter-container">
-          <CustomFilters options={fuels} setFilter={setFuel} />
-            <CustomFilters options={yearsOfProduction} setFilter={setYear} />
-          </div>
-            <div className="clear__filters">
-              <button onClick={() => {
-                setManufacturer("")
-                setModel("")
-                setFuel("")
-                setYear(2022)
-              }} className="text-gray-500">Clear Filters</button>
-
+            <div className="home__text-container">
+              <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
+              <p className="text-gray-500 mt-4">
+                Explore our wide range of cars from different brands and models.
+                </p>
             </div>
-          </div>
-        </div>
+            <div className="home__filters">
+                <SearchBar 
+                  setManufacturer={setManufacturer}
+                  setModel={setModel}
+                />
+                  <div className="home__filter-container">
+                  <CustomFilters options={fuels} setFilter={setFuel} />
+                    <CustomFilters options={yearsOfProduction} setFilter={setYear} />
+                  </div>
+                  <div className="clear__filters">
+                    <button onClick={() => {
+                      setManufacturer("")
+                      setModel("")
+                      setFuel("")
+                      setYear(2022)
+                    }} className="text-gray-500">Clear Filters</button>
+
+                  </div>
+              </div>
+        
           {
            allCars.length > 0 ? (
               <section>
@@ -105,7 +104,7 @@ useEffect(() => {
 
           }
     
-    
+    </div>
     </main>
   )
 }
