@@ -6,7 +6,7 @@ import { ShowMoreProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 import { CustomButton } from "@/components";
 
-const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
+const ShowMore = ({ pageNumber, isNext, setLimit }: ShowMoreProps) => {
   const router = useRouter();
 
   const handleNavigation = () => {

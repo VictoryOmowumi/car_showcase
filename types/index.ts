@@ -16,9 +16,8 @@ export interface OptionProps {
 
   
 export interface CustomFiiltersProps {
-    title: string;
     options: OptionProps[];
-    setFilter: (filter: string) => void;
+   setFilter: (selected: T) => void;
 }
 
 export interface SearchManuFacturerProps {
@@ -69,6 +68,7 @@ export interface HomeProps {
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit: (limit: number) => void;
 }
 
 export interface searchbarProps {

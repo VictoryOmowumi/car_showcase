@@ -8,7 +8,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CustomFiiltersProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 
-const CustomFilters = ({ title, options, setFilter }: CustomFiiltersProps) => {
+const CustomFilters = ({  options, setFilter }: CustomFiiltersProps) => {
 
   const [selected, setSelected] = useState(options[0]); // State for storing the selected option
 

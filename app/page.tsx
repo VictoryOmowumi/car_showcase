@@ -56,17 +56,18 @@ useEffect(() => {
 
           />
           <div className="home__filter-container">
-          <CustomFilters title='fuel' options={fuels} setFilter={setFuel}  />
-            <CustomFilters title='year' options={yearsOfProduction} setFilter={setYear} />
+          <CustomFilters options={fuels} setFilter={setFuel} />
+            <CustomFilters options={yearsOfProduction} setFilter={setYear} />
           </div>
-          <div className="clear__filters">
-            <button onClick={() => {
-              setManufacturer("")
-              setModel("")
-              setFuel("")
-              setYear(2022)
-            }} className="text-gray-500">Clear Filters</button>
-            
+            <div className="clear__filters">
+              <button onClick={() => {
+                setManufacturer("")
+                setModel("")
+                setFuel("")
+                setYear(2022)
+              }} className="text-gray-500">Clear Filters</button>
+
+            </div>
           </div>
         </div>
           {
@@ -97,13 +98,14 @@ useEffect(() => {
               </section>
             ) : (
               <section className="flex flex-col items-center justify-center">
-                <h2>{allCars?.message}</h2>
+               
                 <h1 className="text-2xl font-bold mt-4">Oops, No cars found</h1>
               </section>
             )
 
           }
-     </div>
+    
+    
     </main>
   )
 }
